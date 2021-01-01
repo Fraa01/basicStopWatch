@@ -11,9 +11,10 @@ window.onload = function (){
     var reset = document.getElementById("reset");
     var interval;
 
+    //set up the start, stop, and reset button.
     start.onclick = function(){
         clearInterval(interval);
-        interval = setInterval(startTimer, 10); //now i add the function startTimer.
+        interval = setInterval(startTimer, 10); 
     }
 
     stop.onclick = function(){
@@ -31,7 +32,7 @@ window.onload = function (){
     function startTimer(){
         tens++;
 
-        //add the zero for numbers smaller than 10.
+        //adds the zero for numbers smaller than 10.
         if (tens < 10){
             appendtens.innerHTML = "0" + tens;
         }
@@ -39,11 +40,12 @@ window.onload = function (){
             appendtens.innerHTML = tens;
         
         }
+        //once reached 99 it goes to the seconds.
         if (tens > 99){
             tens = 0;
             console.log("seconds");
             seconds++;
-            //add the 0 for number smaller than 10.
+            //adds the 0 for number smaller than 10.
             if (seconds < 10){
                 appendSeconds.innerHTML = "0" + seconds;
             }
@@ -60,3 +62,4 @@ window.onload = function (){
     }
     
 }
+//TODO add laps.
