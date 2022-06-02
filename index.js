@@ -9,7 +9,9 @@ window.onload = function (){
     var start = document.getElementById("start");
     var stop = document.getElementById("stop");
     var reset = document.getElementById("reset");
+    var lap = document.getElementById("lap");
     var interval;
+    
 
     //set up the start, stop, and reset button.
     start.onclick = function(){
@@ -25,8 +27,13 @@ window.onload = function (){
         clearInterval(interval);
         seconds = "00";
         tens = "00";
+        createLap();
         appendSeconds.innerHTML = seconds;
         appendtens.innerHTML = tens;
+    }
+
+    lap.onclick = function() {
+        createLap();
     }
     
     function startTimer(){
@@ -61,5 +68,24 @@ window.onload = function (){
 
     }
     
+
+    function createLap() {
+      var currentSeconds = document.getElementById("lapseconds");
+      var currentTens = document.getElementById("lapdecimals");
+      if (tens < 10){
+        currentTens.innerHTML = "0" + tens;
+      }
+      else if (tens >= 10){
+        currentTens.innerHTML = tens;
+      }
+      if (seconds < 10){
+        currentSeconds.innerHTML = "0" + seconds;
+      }
+      else if (seconds >= 10){
+        currentSeconds.innerHTML = seconds;
+      }
+    }
+
+
+
 }
-//TODO add laps.
